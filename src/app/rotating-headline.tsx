@@ -2,7 +2,8 @@
 
 import { useEffect, useState, useSyncExternalStore } from "react";
 
-const ROTATE_MS = 2000;
+const ROTATE_MS = 2000; // time each phrase shows
+const RESTART_MS = 5000; // hold on the final phrase before looping back
 const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
 
 // One gradient per phrase, moving warm → cool → on-brand emerald/gold as the
@@ -11,7 +12,7 @@ const GRADIENTS = [
   "linear-gradient(90deg, #f59e0b, #ef4444)", // amber → red
   "linear-gradient(90deg, #ec4899, #8b5cf6)", // pink → violet
   "linear-gradient(90deg, #06b6d4, #3b82f6)", // cyan → blue
-  "linear-gradient(90deg, #10b981, #c8a44d)", // emerald → brand gold
+  "linear-gradient(90deg, #047857, #b45309)", // deep emerald → deep gold
 ];
 
 function subscribeReducedMotion(onChange: () => void) {
@@ -30,9 +31,9 @@ function usePrefersReducedMotion() {
 
 /**
  * Hero headline: "Intimacy" sits on its own line; the completing phrase sits on
- * the line below and advances once through `phrases` (2s each), each with its
- * own color gradient, then rests on the final phrase. No looping. Reduced-motion
- * users jump straight to the resting phrase.
+ * the line below and advances through `phrases` (2s each), each with its own
+ * color gradient. It holds on the final phrase for 5s, then loops back to the
+ * start. Reduced-motion users see the final phrase, static (no looping).
  */
 export function RotatingHeadline({
   phrases,
@@ -49,10 +50,12 @@ export function RotatingHeadline({
   const gradient = GRADIENTS[displayIndex % GRADIENTS.length];
 
   useEffect(() => {
-    if (reducedMotion || index >= lastIndex) return; // Rested / no motion.
+    if (reducedMotion) return; // No motion: hold on the final phrase.
+    // Hold longer on the final phrase, then loop back to the start.
+    const atEnd = index >= lastIndex;
     const timer = setTimeout(
-      () => setIndex((current) => Math.min(current + 1, lastIndex)),
-      ROTATE_MS,
+      () => setIndex((current) => (current >= lastIndex ? 0 : current + 1)),
+      atEnd ? RESTART_MS : ROTATE_MS,
     );
     return () => clearTimeout(timer);
   }, [index, lastIndex, reducedMotion]);
