@@ -14,11 +14,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Towards Eden",
+    default: "Towards Eden — Working toward marital wholeness",
     template: "%s · Towards Eden",
   },
   description:
-    "A quieter way back to what matters. Towards Eden helps you cultivate calm, focus, and renewal — one small step at a time.",
+    "Towards Eden is the parent company of Pain-Free Intimacy, the premier recovery program for painful sex. We help couples move toward marital wholeness.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

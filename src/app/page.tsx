@@ -1,17 +1,19 @@
 import Link from "next/link";
 
-const features = [
+const PFI_URL = "https://painfreeintimacy.com";
+
+const beliefs = [
   {
-    title: "Daily reflection",
-    body: "A gentle prompt each morning to set an intention and each evening to look back — no streaks to break, no guilt.",
+    title: "Wholeness, not just relief",
+    body: "Healing isn't only the absence of pain — it's the return of closeness, confidence, and joy between spouses.",
   },
   {
-    title: "Cultivate slowly",
-    body: "Plant small habits and watch them take root. Progress here is measured in seasons, not in likes.",
+    title: "Compassionate & clinical",
+    body: "A proven, structured recovery program led with expertise and care, so no couple has to navigate this alone.",
   },
   {
-    title: "Quiet by design",
-    body: "No feeds, no infinite scroll, no notifications begging for attention. Just space to breathe and begin again.",
+    title: "Marriage at the center",
+    body: "We walk with couples, not just individuals — because intimacy is something you rebuild together.",
   },
 ];
 
@@ -25,17 +27,16 @@ export default function Home() {
             Towards Eden
           </Link>
           <nav className="flex items-center gap-6 text-sm text-muted">
-            <a href="#features" className="transition-colors hover:text-foreground">
-              Features
-            </a>
-            <a href="#philosophy" className="transition-colors hover:text-foreground">
-              Philosophy
+            <a href="#mission" className="hidden transition-colors hover:text-foreground sm:inline">
+              Our mission
             </a>
             <a
-              href="#waitlist"
+              href={PFI_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="rounded-full bg-primary px-4 py-1.5 font-medium text-primary-foreground transition-colors hover:bg-primary-hover"
             >
-              Join the waitlist
+              Visit Pain-Free Intimacy
             </a>
           </nav>
         </div>
@@ -45,97 +46,98 @@ export default function Home() {
         {/* Hero */}
         <section className="mx-auto max-w-5xl px-6 py-24 text-center sm:py-32">
           <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-accent">
-            A quieter way back
+            Working toward marital wholeness
           </p>
           <h1 className="mx-auto max-w-3xl text-4xl font-semibold leading-tight tracking-tight sm:text-6xl">
-            Cultivate calm, focus, and renewal — one small step at a time.
+            Intimacy shouldn&apos;t hurt. Recovery is possible.
           </h1>
-          <p className="mx-auto mt-6 max-w-xl text-lg text-muted">
-            Towards Eden is a calm companion for the life you actually want to
-            live. Less noise, fewer metrics, more meaning.
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-muted">
+            Towards Eden is the parent company of{" "}
+            <span className="font-medium text-foreground">Pain-Free Intimacy</span>{" "}
+            — the premier recovery program for painful sex. If pain has come
+            between you and your spouse, there is a way back.
           </p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
             <a
-              href="#waitlist"
+              href={PFI_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="rounded-full bg-primary px-6 py-3 font-medium text-primary-foreground transition-colors hover:bg-primary-hover"
             >
-              Join the waitlist
+              Explore the program →
             </a>
             <a
-              href="#philosophy"
+              href="#mission"
               className="rounded-full border border-border px-6 py-3 font-medium transition-colors hover:bg-card"
             >
-              Read the philosophy
+              Learn about us
             </a>
           </div>
-        </section>
-
-        {/* Features */}
-        <section id="features" className="border-t border-border/70 bg-card/40">
-          <div className="mx-auto grid max-w-5xl gap-6 px-6 py-20 sm:grid-cols-3">
-            {features.map((f) => (
-              <div
-                key={f.title}
-                className="rounded-2xl border border-border bg-card p-6 shadow-sm"
-              >
-                <h3 className="text-lg font-semibold">{f.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted">{f.body}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Philosophy */}
-        <section id="philosophy" className="mx-auto max-w-3xl px-6 py-24 text-center">
-          <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-            Growth, not grind.
-          </h2>
-          <p className="mt-6 text-lg leading-relaxed text-muted">
-            The name is a promise: a return to a garden state of mind — unhurried,
-            attentive, whole. We build tools that get quieter the more you use
-            them, so the app fades and your life comes forward.
+          <p className="mt-4 text-sm text-muted">
+            painfreeintimacy.com
           </p>
         </section>
 
-        {/* Waitlist */}
-        <section
-          id="waitlist"
-          className="border-t border-border/70 bg-card/40"
-        >
-          <div className="mx-auto max-w-xl px-6 py-20 text-center">
-            <h2 className="text-2xl font-semibold tracking-tight">
-              Be there from the first season.
+        {/* Beliefs */}
+        <section id="mission" className="border-t border-border/70 bg-card/40">
+          <div className="mx-auto max-w-5xl px-6 py-20">
+            <h2 className="mx-auto max-w-2xl text-center text-3xl font-semibold tracking-tight sm:text-4xl">
+              We believe in working toward marital wholeness.
             </h2>
-            <p className="mt-3 text-muted">
-              We&apos;ll only email you when there&apos;s something worth your
-              attention.
-            </p>
-            <form className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <label htmlFor="email" className="sr-only">
-                Email address
-              </label>
-              <input
-                id="email"
-                type="email"
-                required
-                placeholder="you@example.com"
-                className="flex-1 rounded-full border border-border bg-background px-5 py-3 outline-none focus:border-primary"
-              />
-              <button
-                type="submit"
-                className="rounded-full bg-primary px-6 py-3 font-medium text-primary-foreground transition-colors hover:bg-primary-hover"
-              >
-                Notify me
-              </button>
-            </form>
+            <div className="mt-12 grid gap-6 sm:grid-cols-3">
+              {beliefs.map((b) => (
+                <div
+                  key={b.title}
+                  className="rounded-2xl border border-border bg-card p-6 shadow-sm"
+                >
+                  <h3 className="text-lg font-semibold">{b.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted">{b.body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Program spotlight / redirect */}
+        <section className="mx-auto max-w-3xl px-6 py-24 text-center">
+          <p className="text-sm font-medium uppercase tracking-[0.2em] text-accent">
+            Our flagship program
+          </p>
+          <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
+            Pain-Free Intimacy
+          </h2>
+          <p className="mt-6 text-lg leading-relaxed text-muted">
+            A dedicated recovery program helping couples overcome painful sex and
+            restore the closeness marriage is meant to hold. Everything we do
+            lives at Pain-Free Intimacy — that&apos;s where your recovery begins.
+          </p>
+          <div className="mt-10">
+            <a
+              href={PFI_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block rounded-full bg-primary px-8 py-3.5 text-lg font-medium text-primary-foreground transition-colors hover:bg-primary-hover"
+            >
+              Go to painfreeintimacy.com →
+            </a>
           </div>
         </section>
       </main>
 
       <footer className="border-t border-border/70">
         <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-3 px-6 py-8 text-sm text-muted sm:flex-row">
-          <span>🌿 Towards Eden</span>
-          <span>© {new Date().getFullYear()} · Built with care.</span>
+          <span>🌿 Towards Eden · Parent company of Pain-Free Intimacy</span>
+          <a
+            href={PFI_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-colors hover:text-foreground"
+          >
+            painfreeintimacy.com
+          </a>
+        </div>
+        <div className="mx-auto max-w-5xl px-6 pb-8 text-xs text-muted">
+          © {new Date().getFullYear()} Towards Eden. All rights reserved.
         </div>
       </footer>
     </>
