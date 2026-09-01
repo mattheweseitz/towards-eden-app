@@ -11,12 +11,8 @@
     "directory": ".open-next/assets",
     "binding": "ASSETS"
   },
-  "routes": [
-    { "pattern": "towardseden.com", "custom_domain": true },
-    { "pattern": "www.towardseden.com", "custom_domain": true }
-  ],
-  // Keep the *.workers.dev URL and preview URLs alive alongside the custom
-  // domains (adding routes would otherwise disable them by default).
+  // Custom domains (towardseden.com / www) are managed in the Cloudflare
+  // dashboard, not here. Keep the *.workers.dev URL and preview URLs on.
   "workers_dev": true,
   "preview_urls": true,
   "services": [
