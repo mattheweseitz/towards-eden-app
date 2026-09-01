@@ -11,6 +11,14 @@
     "directory": ".open-next/assets",
     "binding": "ASSETS"
   },
+  "routes": [
+    { "pattern": "towardseden.com", "custom_domain": true },
+    { "pattern": "www.towardseden.com", "custom_domain": true }
+  ],
+  // Keep the *.workers.dev URL and preview URLs alive alongside the custom
+  // domains (adding routes would otherwise disable them by default).
+  "workers_dev": true,
+  "preview_urls": true,
   "services": [
     {
       "binding": "WORKER_SELF_REFERENCE",
