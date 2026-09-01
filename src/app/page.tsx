@@ -1,6 +1,14 @@
 import Link from "next/link";
+import { RotatingHeadline } from "./rotating-headline";
 
 const PFI_URL = "https://painfreeintimacy.com";
+
+const HERO_PHRASES = [
+  "shouldn't hurt",
+  "shouldn't be painful",
+  "was meant to be joyful",
+  "is possible",
+];
 
 const beliefs = [
   {
@@ -48,9 +56,10 @@ export default function Home() {
           <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-accent">
             Working toward marital wholeness
           </p>
-          <h1 className="mx-auto max-w-3xl text-4xl font-semibold leading-tight tracking-tight sm:text-6xl">
-            Intimacy shouldn&apos;t hurt. Recovery is possible.
-          </h1>
+          <RotatingHeadline
+            phrases={HERO_PHRASES}
+            className="mx-auto max-w-3xl text-4xl font-semibold leading-tight tracking-tight sm:text-6xl"
+          />
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted">
             Towards Eden is the parent company of{" "}
             <span className="font-medium text-foreground">Pain-Free Intimacy</span>{" "}
