@@ -48,6 +48,7 @@ export function RotatingHeadline({
 
   const displayIndex = reducedMotion ? lastIndex : index;
   const gradient = GRADIENTS[displayIndex % GRADIENTS.length];
+  const isFinalPhrase = displayIndex === lastIndex;
 
   useEffect(() => {
     if (reducedMotion) return; // No motion: hold on the final phrase.
@@ -64,12 +65,22 @@ export function RotatingHeadline({
     <h1 className={className}>
       <span className="block">Intimacy</span>
       {/* key forces a remount per phrase so the enter animation replays */}
-      <span
-        key={displayIndex}
-        className="animate-phrase-in block bg-clip-text pb-2 text-transparent"
-        style={{ backgroundImage: gradient }}
-      >
-        {phrases[displayIndex]}.
+      <span key={displayIndex} className="animate-phrase-in block">
+        <span className="relative inline-block pb-2">
+          <span
+            className="bg-clip-text text-transparent"
+            style={{ backgroundImage: gradient }}
+          >
+            {phrases[displayIndex]}.
+          </span>
+          {isFinalPhrase && (
+            <span
+              aria-hidden
+              className="animate-underline-draw absolute bottom-0 left-0 h-[5px] w-full rounded-full"
+              style={{ backgroundImage: gradient }}
+            />
+          )}
+        </span>
       </span>
     </h1>
   );
