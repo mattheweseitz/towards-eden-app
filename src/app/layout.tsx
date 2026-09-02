@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Towards Eden — Working toward marital wholeness",
+    default: "Towards Eden — Pursuing marital wholeness",
     template: "%s · Towards Eden",
   },
   description:

@@ -30,14 +30,10 @@ export default function Home() {
     <>
       <header className="sticky top-0 z-10 border-b border-border/70 bg-background/80 backdrop-blur">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
-          <Link href="/" className="flex items-center gap-2 font-semibold tracking-tight">
-            <span aria-hidden className="text-lg">🌿</span>
+          <Link href="/" className="font-semibold tracking-tight">
             Towards Eden
           </Link>
           <nav className="flex items-center gap-6 text-sm text-muted">
-            <a href="#mission" className="hidden transition-colors hover:text-foreground sm:inline">
-              Our mission
-            </a>
             <a
               href={PFI_URL}
               target="_blank"
@@ -54,7 +50,7 @@ export default function Home() {
         {/* Hero */}
         <section className="mx-auto max-w-5xl px-6 py-24 text-center sm:py-32">
           <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-accent">
-            Working toward marital wholeness
+            Pursuing marital wholeness
           </p>
           <RotatingHeadline
             phrases={HERO_PHRASES}
@@ -75,12 +71,6 @@ export default function Home() {
             >
               Explore the program →
             </a>
-            <a
-              href="#mission"
-              className="rounded-full border border-border px-6 py-3 font-medium transition-colors hover:bg-card"
-            >
-              Learn about us
-            </a>
           </div>
           <p className="mt-4 text-sm text-muted">
             painfreeintimacy.com
@@ -91,7 +81,7 @@ export default function Home() {
         <section id="mission" className="border-t border-border/70 bg-card/40">
           <div className="mx-auto max-w-5xl px-6 py-20">
             <h2 className="mx-auto max-w-2xl text-center text-3xl font-semibold tracking-tight sm:text-4xl">
-              We believe in working toward marital wholeness.
+              We believe in pursuing marital wholeness.
             </h2>
             <div className="mt-12 grid gap-6 sm:grid-cols-3">
               {beliefs.map((b) => (
